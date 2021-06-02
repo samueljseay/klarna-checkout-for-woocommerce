@@ -419,6 +419,16 @@ if ( class_exists( 'WC_Payment_Gateway' ) ) {
 		}
 
 		/**
+		 * Determine if the gateway needs setup based on settings.
+		 */
+		public function needs_setup() {
+			$store_base_location = wc_get_base_location();
+			$setting_suffix      = $this->check_if_eu( $store_base_location['country'] ) === 'EU' ? 'eu' : 'us';
+			
+			return ! $this->get_option( 'merchant_id_' . $setting_suffix ) || ! $this->get_option( 'shared_secret_' . $setting_suffix );
+		}
+
+		/**
 		 * Process the payment with information from Klarna and return the result.
 		 *
 		 * @param  int $order_id WooCommerce order ID.
