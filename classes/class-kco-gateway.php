@@ -418,16 +418,6 @@ if ( class_exists( 'WC_Payment_Gateway' ) ) {
 		}
 
 		/**
-		 * Get the oAuth connection URL.
-		 *
-		 * @param string $return_url The URL to return to after the oAuth connection has been established.
-		 * @return string Connection URL.
-		 */
-		public function get_oauth_connection_url( $return_url = '' ) { 
-			return null;
-		}
-
-		/**
 		 * Process the payment with information from Klarna and return the result.
 		 *
 		 * @param  int $order_id WooCommerce order ID.
