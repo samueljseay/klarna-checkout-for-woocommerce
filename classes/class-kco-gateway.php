@@ -402,6 +402,7 @@ if ( class_exists( 'WC_Payment_Gateway' ) ) {
 		 * @return array Array of setting keys used for setup.
 		 */
 		public function get_required_settings_keys() {
+			$store_base_location = wc_get_base_location();
 			$setting_suffix = $this->check_if_eu( $store_base_location['country'] ) === 'EU' ? 'eu' : 'us';
 			
 			return array(
